@@ -1,0 +1,205 @@
+body, html {
+    overflow-x: hidden;
+}
+
+body {
+    padding-top: 30px;
+}
+
+footer {
+    padding: 30px;
+}
+
+@media screen and (max-width: 767px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+        -o-transition: all .25s ease-out;
+        transition: all .25s ease-out
+    }
+
+    .row-offcanvas-right {
+        right: 0
+    }
+
+    .row-offcanvas-left {
+        left: 0
+    }
+
+    .row-offcanvas-right .sidebar-offcanvas {
+        right: -50%
+    }
+
+    .row-offcanvas-left .sidebar-offcanvas {
+        left: -50%
+    }
+
+    .row-offcanvas-right.active {
+        right: 50%
+    }
+
+    .row-offcanvas-left.active {
+        left: 50%
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 50%
+    }
+}
+
+ .list .item {
+    margin-bottom: 35px
+}
+
+.list .item img {
+    display: block;
+    width: 40%;
+    height: 30%;
+
+}
+
+.list .item .desc {
+    height: 125px;
+    overflow: hidden;
+} 
+
+.mid_content {
+    background-image: url("../images/hostel5.jpg");
+    background-size: 100% auto;
+    width: 1300px;
+    height: 730px; 
+}
+.footer {
+	background-color:  #FAEBD7;
+}
+.orderForm {
+	width: 500px;
+	height: 150px;
+	margin-top: 150px;
+}
+
+.orderForm label {
+	width: 10em;
+	float: left;
+	text-align: right;
+	margin-right: 1em;
+	margin-bottom: 1em;
+}	
+.orderForm input {
+	width: 133px;
+	margin-bottom: 1em;
+}
+table {
+	text-align: center;
+}
+th {
+	text-align: center;
+}
+#bonusbans input[type="text"] {
+	width: 2em;
+}
+.orderForm input[type="submit"] {
+	margin-left: 155px;
+}
+nav {
+	font-size: 1.2em;
+}
+.active {
+	margin-right: 1em;
+}
+h1 {
+	padding-top: 20px;
+	font-family: "Marco One", Georgia, serif;
+	color:    #DC143C;
+	font-size: 400%;
+	font-style: italic;
+	text-align: center;
+}
+form[name="loginForm"] {
+	width: 500px;
+	height: 300px;
+	margin-left: 100px;
+	margin-top: 150px;
+}
+form[name="loginForm"] h3 {
+	margin-left: -80px;
+}
+form[name="registrationForm"] {
+	width: 500px;
+	height: 500px;
+	margin-left: 50px;
+}
+table {
+	background-color:  #FAEBD7;
+}
+h1, h2 {
+	text-align: center;
+}
+#price_text {
+	background-image: url("../images/bg_wood.jpg");
+	background-size: 100% auto;
+	width: 700px;
+	height: 300px;
+	margin-left: 22%;
+	padding-top: 5px;
+}
+#price_text div {
+	font-size: 150%;
+	padding: 1em;
+	text-align: justify;
+}
+
+.mid_content_admin {
+    background-image: url("../images/admin.jpg");
+    background-size: 100% auto;
+    width: 1300px;
+    height: 730px; 
+}
+iframe {
+	margin-left: 20%;
+}
+.item img {
+	width: 60%;
+	height: auto;
+	margin-left: 20%;
+}
+form[name=bookingForm] {
+	display: inline;
+	float: left;
+	margin: 5px;
+}
+form[name=payingForm] {
+	margin: 5px;
+	float: left;
+}
+form[name=refuseForm] {
+	margin: 5px;
+}
+
+#paymentDetails {
+	width: 650px;
+	height: 300px;
+	margin-top: 150px;
+}
+
+#paymentDetails label {
+	width: 14em;
+	float: left;
+	text-align: right;
+	margin-right: 1em;
+	margin-bottom: 1em;
+}	
+#paymentDetails input {
+	width: 10em;
+	margin-bottom: 1em;
+}
+input#dateDetails {
+	width: 4.6em;
+}
+#paymentDetails input[type="submit"] {
+ 	margin-left: 3em;
+ 	width: 22em;
+ }
+</style>
