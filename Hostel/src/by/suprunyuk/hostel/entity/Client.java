@@ -1,7 +1,5 @@
 package by.suprunyuk.hostel.entity;
 
-import java.time.LocalDate;
-
 public class Client extends Entity {
 	
 	private long clientId;
@@ -79,6 +77,52 @@ public class Client extends Entity {
 
 	public void setBanned(boolean banned) {
 		this.banned = banned;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (banned ? 1231 : 1237);
+		result = prime * result + (int) (clientId ^ (clientId >>> 32));
+		result = prime * result + discount;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Client other = (Client) obj;
+		if (banned != other.banned)
+			return false;
+		if (clientId != other.clientId)
+			return false;
+		if (discount != other.discount)
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equals(other.surname))
+			return false;
+		return true;
 	}
 
 	@Override
