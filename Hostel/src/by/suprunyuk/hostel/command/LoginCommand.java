@@ -2,13 +2,17 @@ package by.suprunyuk.hostel.command;
 
 import javax.servlet.http.HttpServletRequest;
 
-import by.suprunyuk.hostel.dao.ClientDAO;
 import by.suprunyuk.hostel.dao.UserDAO;
 import by.suprunyuk.hostel.entity.User;
 import by.suprunyuk.hostel.entity.UserRole;
 import by.suprunyuk.hostel.resource.ConfigurationManager;
 import by.suprunyuk.hostel.service.LoginLogic;
 
+/**
+ * Command logins user to system checking his login and password and changes its role 
+ * 
+ * @author Anton Suprunyuk
+ */
 public class LoginCommand implements ActionCommand {
 
 	private static final String PARAM_NAME_LOGIN = "login";
@@ -20,7 +24,14 @@ public class LoginCommand implements ActionCommand {
 	private static final String CLIENT_ID_ATTRIBUTE = "clientId";
 	private static final String USER_ROLE_ATTRIBUTE = "userRole";
 	
-	
+	/**
+	 * returns String interpretation of the page user will be redirected to after doing business logic obtaining information
+	 * from the request object
+	 * 
+	 * @param request an object implementing HttpServletRequest interface
+	 * @return String interpretation of the page user will be redirected to
+	 * @see javax.servlet.http.HttpServletRequest
+	 */
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = ConfigurationManager.getProperty("path.page.login");

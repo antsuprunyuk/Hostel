@@ -5,8 +5,21 @@ import java.security.NoSuchAlgorithmException;
 
 import by.suprunyuk.hostel.exception.PasswordEncodingException;
 
+/** 
+ * Class for encoding string using SHA-256 algorithm
+ * 
+ * @author Anton Suprunyuk
+ */
+
 public class PasswordEncoder {
 
+	/**
+	 * encodes String using SHA-256 algorithm 
+	 * 
+	 * @param password encoded String representation of user password
+	 * @return String representation of encoded password by SHA-256 algorythm
+	 * @throws PasswordEncodingException Exception that may occured during encoding
+	 */
 	public static String encode(String password) throws PasswordEncodingException {
 		MessageDigest md;
 		try {

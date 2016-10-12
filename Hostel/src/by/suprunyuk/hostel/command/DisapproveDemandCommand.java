@@ -8,12 +8,25 @@ import by.suprunyuk.hostel.entity.Demand;
 import by.suprunyuk.hostel.resource.ConfigurationManager;
 import by.suprunyuk.hostel.service.DemandLogic;
 
+/** 
+ * Command for disapproving demands by admin. After doing it stays at the same page
+ * 
+ * @author Anton Suprunyuk
+ */
 public class DisapproveDemandCommand implements ActionCommand {
 
 	private static final String  CLIENT_ID_ATTRIBUTE = "clientId";
 	private static final String ADMIN_PAGE_PATH = "path.page.admin";
 	private static final String DEMANDS_MANAGE_PAGE_PATH = "path.page.demandsmanage";
 
+	/**
+	 * returns String interpretation of the page user will be redirected to after doing business logic obtaining information
+	 * from the request object
+	 * 
+	 * @param request an object implementing HttpServletRequest interface
+	 * @return String interpretation of the page user will be redirected to
+	 * @see javax.servlet.http.HttpServletRequest
+	 */
 	@Override
 	public String execute(HttpServletRequest request) {
 		String page = ConfigurationManager.getProperty(ADMIN_PAGE_PATH);
@@ -24,15 +37,7 @@ public class DisapproveDemandCommand implements ActionCommand {
 				long demandId = Long.parseLong(request.getParameter("demandId"));
 				DemandLogic.approve(demandId, false);							
 				List<Demand> demands = DemandLogic.readAllDemands();
-/*				for (Demand demand : demands) {
-					System.out.println(demand);
-				}*/
 				request.getSession().setAttribute("demands", demands);
-		/*		LocalDate dateIn = (LocalDate) request.getSession().getAttribute(DATE_IN_ATTRIBUTE);
-				LocalDate dateOut = (LocalDate) request.getSession().getAttribute(DATE_OUT_ATTRIBUTE);
-				int number = (int) request.getSession().getAttribute(NUMBER_ATTRIBUTE);
-				long hostelId = (long) request.getSession().getAttribute(HOSTEL_ID_ATTRIBUTE);
-				DemandLogic.makeBooking(dateIn, dateOut, number, hostelId, clientId);*/
 				page = ConfigurationManager.getProperty(DEMANDS_MANAGE_PAGE_PATH);
 			}
 		} 

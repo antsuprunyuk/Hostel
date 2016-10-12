@@ -19,18 +19,49 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+/**
+ * A connection (session) with a specific
+ * database. SQL statements are executed and results are returned
+ * within the context of a connection.
+ * Proxy connection class implementing proxy pattern to protect
+ *  connection pool from wild connections
+ * 
+ * @author Anton
+ */
 public class ProxyConnection implements Connection {
+	
+	/**
+	 * Connection pool instance used for managing connections instead of closing them every time 
+	 */
 	private ConnectionPool pool;
+	
+	/**
+	 * connection instance used for interface compatibility between ProxyConnection and Connection, repeating every method and invoking them
+	 * on Connection variable
+	 */
 	private Connection connection;
 	
+	/**
+	 * Constructor with connection parameter
+	 * 
+	 * @param connection any object implementing Connection interface
+	 */
 	ProxyConnection(Connection connection) {
 		this.connection = connection;
 	}
 	
+	/**
+	 * Standart getter for obtaining Connection instance
+	 * @return connection any object implementing Connection interface
+	 */
 	public Connection getConnection() {
 		return connection;
 	}
 
+	/**
+	 * Standart setter for setting Connection instance
+	 * @param  connection any object implementing Connection interface
+	 */
 	public void setConnection(Connection connection) {
 		this.connection = connection;
 	}
@@ -43,6 +74,10 @@ public class ProxyConnection implements Connection {
 		this.pool = pool;
 	}
 
+    /**
+     * Creates a <code>Statement</code> object for sending
+     * SQL statements to the database.
+     */
 	@Override
 	public Statement createStatement() throws SQLException {
 		return connection.createStatement();
@@ -58,11 +93,19 @@ public class ProxyConnection implements Connection {
 		return connection.isWrapperFor(iface);
 	}
 
+	/**
+     * Creates a <code>PreparedStatement</code> object for sending
+     * parameterized SQL statements to the database.
+	 */
 	@Override
 	public PreparedStatement prepareStatement(String sql) throws SQLException {
 		return connection.prepareStatement(sql);
 	}
 
+	/**
+     * Creates a <code>CallableStatement</code> object for calling
+     * database stored procedures.
+	 */
 	@Override
 	public CallableStatement prepareCall(String sql) throws SQLException {
 		return connection.prepareCall(sql);

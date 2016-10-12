@@ -8,6 +8,12 @@ import by.suprunyuk.hostel.resource.ConfigurationManager;
 import by.suprunyuk.hostel.service.AvailabilityResult;
 import by.suprunyuk.hostel.service.DemandLogic;
 
+/**
+ * Command for making demand. Checks if demand is possible and then redirecting to page where client 
+ * can decide whether to book an apartment or to pay for it 
+ * 
+ * @author Anton Suprunyuk
+ */
 public class DemandCommand implements ActionCommand {
 
 	private static final String DATE_IN_PARAMETER = "dateIn";
@@ -19,9 +25,17 @@ public class DemandCommand implements ActionCommand {
 	private static final String ORDER_PAGE_PATH = "path.page.order";
 	private static final String MAIN_PAGE_PATH = "path.page.main";
 	
+	/**
+	 * returns String interpretation of the page user will be redirected to after doing business logic obtaining information
+	 * from the request object
+	 * 
+	 * @param request an object implementing HttpServletRequest interface
+	 * @return String interpretation of the page user will be redirected to
+	 * @see javax.servlet.http.HttpServletRequest
+	 */
 	@Override
 	public String execute(HttpServletRequest request) {
-		String page = null; // page of booking and payment
+		String page = null; 
 		LocalDate dateIn = LocalDate.parse(request.getParameter(DATE_IN_PARAMETER));
 		LocalDate dateOut = LocalDate.parse(request.getParameter(DATE_OUT_PARAMETER));
 		int number = Integer.parseInt(request.getParameter(NUMBER_PARAMETER));
